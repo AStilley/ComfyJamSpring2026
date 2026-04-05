@@ -1,0 +1,29 @@
+[gd_scene format=4 uid="uid://dcsu5xhojjgkk"]
+
+[ext_resource type="Texture2D" uid="uid://tuno7xlymm6o" path="res://Assets/Placeholder/965CA590-A3A7-4E95-8F19-C1EBA93AB054.png" id="1_7yhko"]
+[ext_resource type="Texture2D" uid="uid://d2d635tyhy2cn" path="res://Assets/Backgrounds/IMG_3898.png" id="2_1n30v"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1n30v"]
+texture = ExtResource("1_7yhko")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.027423, -3.4862885, 0, -8, 9.674915, -3.1625426, 0, 1.978447)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7yhko"]
+texture = ExtResource("1_7yhko")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ykcdr"]
+tile_shape = 1
+tile_size = Vector2i(32, 16)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_1n30v")
+sources/1 = SubResource("TileSetAtlasSource_7yhko")
+
+[node name="Room_1" type="Sprite2D" unique_id=1118591998]
+texture = ExtResource("2_1n30v")
+
+[node name="Layer0" type="TileMapLayer" parent="." unique_id=1890719366]
+visible = false
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD7/wkAAAAAAAAAAAD8/woAAAAAAAAAAAD8/wsAAAAAAAAAAAD9/wwAAAAAAAAAAAD9/w0AAAAAAAAAAAD+/w4AAAAAAAAAAAD+/w8AAAAAAAAAAAD//xAAAAAAAAAAAAD//xEAAAAAAAAAAAABABIAAAAAAAAAAAABABEAAAAAAAAAAAACABAAAAAAAAAAAAACAA8AAAAAAAAAAAACAA4AAAAAAAAAAAABAA0AAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAADAAoAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAgAAAAAAAAAAAD7/wgAAAAAAAAAAAD6/wcAAAAAAAAAAAD7/wYAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wQAAAAAAAAAAAD8/wMAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAAAAP7/AAAAAAAAAAABAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAABAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAABAAAAAAAAAAAAAAABEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ykcdr")

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://nkwvtl4mx3jd"]
+
+[ext_resource type="Texture2D" uid="uid://c82c80sa2firy" path="res://Assets/Placeholder/IMG_3879.png" id="1_132u1"]
+[ext_resource type="Texture2D" uid="uid://y16t5yfi0sou" path="res://Assets/Placeholder/27B14CE8-3A32-42B4-87B4-236534DE6992.png" id="2_bx5oh"]
+[ext_resource type="Texture2D" uid="uid://daau17gfu4b55" path="res://Assets/Placeholder/86A7E013-8641-453E-BD45-B3F003DF9EAC.png" id="3_1ifmp"]
+[ext_resource type="Texture2D" uid="uid://cnucbaa8wc1qo" path="res://Assets/Placeholder/B23456D1-714A-4D1E-96F7-8329E78A10DD.png" id="4_uvy7y"]
+[ext_resource type="Texture2D" uid="uid://tuno7xlymm6o" path="res://Assets/Placeholder/965CA590-A3A7-4E95-8F19-C1EBA93AB054.png" id="5_37uv6"]
+
+[node name="FirstRoom" type="Node2D" unique_id=1178954147]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=564753747]
+position = Vector2(362, 237.00002)
+scale = Vector2(1.4999998, 1.4999998)
+texture = ExtResource("1_132u1")
+
+[node name="27b14ce83a3242b487b4236534de6992" type="Sprite2D" parent="." unique_id=1055099693]
+position = Vector2(119, 254)
+texture = ExtResource("2_bx5oh")
+
+[node name="86a7e0138641453eBd45B3f003df9eac" type="Sprite2D" parent="." unique_id=413986334]
+position = Vector2(204, 288)
+texture = ExtResource("3_1ifmp")
+
+[node name="B23456d1714a4d1e96f78329e78a10dd" type="Sprite2D" parent="." unique_id=431170683]
+position = Vector2(373, 271)
+texture = ExtResource("4_uvy7y")
+
+[node name="965ca590A3a74e958f19C1eba93ab054" type="Sprite2D" parent="." unique_id=1610401940]
+position = Vector2(547, 381)
+texture = ExtResource("5_37uv6")
