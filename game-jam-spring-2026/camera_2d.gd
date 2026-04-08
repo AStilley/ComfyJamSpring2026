@@ -10,18 +10,18 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_G):
-		camPosition(0)
-	if Input.is_key_pressed(KEY_H):
 		camPosition(1)
+	if Input.is_key_pressed(KEY_H):
+		camPosition(2)
 
 func camPosition(positionNum) -> void:
 	match positionNum:
-		0: #First Room
+		1: #First Room
 			position.x = 360
 			position.y = 240
-		1: #Second Room
+		2: #Second Room
 			position.x = 1080
 			position.y = 240
-		2:
+		3:
 			pass
 	pass

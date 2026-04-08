@@ -10,14 +10,29 @@
 position = Vector2(360, 240)
 script = ExtResource("1_h2yge")
 
-[node name="Room_1" parent="." unique_id=1890719366 instance=ExtResource("3_h2yge")]
+[node name="Room_1" parent="." unique_id=1890719366 node_paths=PackedStringArray("connectSpot") instance=ExtResource("3_h2yge")]
 position = Vector2(348, 240)
 scale = Vector2(1.5, 1.5)
+connectSpot = NodePath("../Room_2/Room2Enter")
+next_room_num = 2
 
-[node name="Player2" parent="." unique_id=96595173 instance=ExtResource("2_0xm2m")]
-position = Vector2(396, 307)
+[node name="Room1Enter" type="Node2D" parent="Room_1" unique_id=1401092916]
+position = Vector2(50.666668, 126.66667)
+scale = Vector2(0.6666667, 0.6666667)
 
-[node name="Room_2" parent="." unique_id=1118591998 instance=ExtResource("3_h2yge")]
+[node name="Room_2" parent="." unique_id=1118591998 node_paths=PackedStringArray("connectSpot") instance=ExtResource("3_h2yge")]
 modulate = Color(0.5372549, 0, 1, 1)
 position = Vector2(1080, 240)
 scale = Vector2(1.5, 1.5)
+connectSpot = NodePath("../Room_1/Room1Enter")
+next_room_num = 1
+
+[node name="Room2Enter" type="Node2D" parent="Room_2" unique_id=1061634188]
+position = Vector2(50.666668, 126)
+scale = Vector2(0.44444448, 0.44444448)
+
+[node name="Player" parent="." unique_id=96595173 instance=ExtResource("2_0xm2m")]
+position = Vector2(384, 383)
+
+[connection signal="camera" from="Room_1" to="Camera2D" method="camPosition"]
+[connection signal="camera" from="Room_2" to="Camera2D" method="camPosition"]

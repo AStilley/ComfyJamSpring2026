@@ -2,6 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://tuno7xlymm6o" path="res://Assets/Placeholder/965CA590-A3A7-4E95-8F19-C1EBA93AB054.png" id="1_7yhko"]
 [ext_resource type="Texture2D" uid="uid://d2d635tyhy2cn" path="res://Assets/Backgrounds/IMG_3898.png" id="2_1n30v"]
+[ext_resource type="Script" uid="uid://b3w3u44d54abo" path="res://room_1.gd" id="2_h1lav"]
+[ext_resource type="Texture2D" uid="uid://cejmnjoin4vvy" path="res://Assets/Lvl 1/Dust/Toy_Kitchen_Dirty.png" id="4_xrr5k"]
+[ext_resource type="Texture2D" uid="uid://dgp2sijbniidg" path="res://Assets/Lvl 1/Move/lvl1_window.png" id="5_v342e"]
+[ext_resource type="Texture2D" uid="uid://bn3emta7i5ff1" path="res://Assets/Lvl 1/Move/rug.png" id="6_ls6ti"]
+[ext_resource type="Texture2D" uid="uid://j3nk7b0lpjn8" path="res://Assets/Lvl 1/Move/lvl1_bed.png" id="7_h3oke"]
+[ext_resource type="Texture2D" uid="uid://ccxxn05724622" path="res://Assets/Lvl 1/Move/toy_table.png" id="8_xht2q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1n30v"]
 texture = ExtResource("1_7yhko")
@@ -19,11 +25,47 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1n30v")
 sources/1 = SubResource("TileSetAtlasSource_7yhko")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57y6e"]
+
 [node name="Room_1" type="Sprite2D" unique_id=1118591998]
 texture = ExtResource("2_1n30v")
+script = ExtResource("2_h1lav")
 
 [node name="Layer0" type="TileMapLayer" parent="." unique_id=1890719366]
 visible = false
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD7/wkAAAAAAAAAAAD8/woAAAAAAAAAAAD8/wsAAAAAAAAAAAD9/wwAAAAAAAAAAAD9/w0AAAAAAAAAAAD+/w4AAAAAAAAAAAD+/w8AAAAAAAAAAAD//xAAAAAAAAAAAAD//xEAAAAAAAAAAAABABIAAAAAAAAAAAABABEAAAAAAAAAAAACABAAAAAAAAAAAAACAA8AAAAAAAAAAAACAA4AAAAAAAAAAAABAA0AAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAADAAoAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAgAAAAAAAAAAAD7/wgAAAAAAAAAAAD6/wcAAAAAAAAAAAD7/wYAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wQAAAAAAAAAAAD8/wMAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAAAAP7/AAAAAAAAAAABAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAABAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAABAAAAAAAAAAAAAAABEAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD7/wkAAAAAAAAAAAD8/woAAAAAAAAAAAD8/wsAAAAAAAAAAAD9/wwAAAAAAAAAAAD9/w0AAAAAAAAAAAD+/w4AAAAAAAAAAAD+/w8AAAAAAAAAAAD//xAAAAAAAAAAAAD//xEAAAAAAAAAAAABABIAAAAAAAAAAAACAA8AAAAAAAAAAAACAA4AAAAAAAAAAAABAA0AAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAADAAoAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAgAAAAAAAAAAAD7/wgAAAAAAAAAAAD6/wcAAAAAAAAAAAD7/wYAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wQAAAAAAAAAAAD8/wMAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAAAAP7/AAAAAAAAAAABAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAABAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAABAAAAAAAAAAAAAAABEAAAAAAAAAAAACABIAAAAAAAAAAAACABEAAAAAAAAAAAABABMAAAAAAAAAAAADABAAAAAAAAAAAAD8/wcAAAAAAAAAAAD8/wgAAAAAAAAAAAD7/wcAAAAAAAAAAAD8/wYAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wsAAAAAAAAAAAD+/wwAAAAAAAAAAAD+/woAAAAAAAAAAAD9/wsAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAD//wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ykcdr")
+
+[node name="Doorway" type="Area2D" parent="." unique_id=1162300363]
+position = Vector2(61, 120)
+rotation = 1.0471976
+scale = Vector2(1.7381525, 1.9258142)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doorway" unique_id=690942415]
+position = Vector2(9.178989, 5.3826714)
+scale = Vector2(1.8079093, -1.145591)
+shape = SubResource("CapsuleShape2D_57y6e")
+
+[node name="ToyKitchenDirty" type="Sprite2D" parent="." unique_id=1827856403]
+position = Vector2(-95, 33)
+texture = ExtResource("4_xrr5k")
+
+[node name="Lvl1Window" type="Sprite2D" parent="." unique_id=363098517]
+position = Vector2(96, 5)
+texture = ExtResource("5_v342e")
+
+[node name="Rug" type="Sprite2D" parent="." unique_id=1790429120]
+position = Vector2(-20, 51)
+texture = ExtResource("6_ls6ti")
+
+[node name="Lvl1Bed" type="Sprite2D" parent="." unique_id=241293412]
+position = Vector2(9, 19)
+texture = ExtResource("7_h3oke")
+
+[node name="ToyTable" type="Sprite2D" parent="." unique_id=1016539749]
+position = Vector2(-44, 88)
+texture = ExtResource("8_xht2q")
+
+[connection signal="body_entered" from="Doorway" to="." method="_on_doorway_body_entered"]
+[connection signal="body_exited" from="Doorway" to="." method="_on_doorway_body_exited"]
