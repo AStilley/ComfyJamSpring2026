@@ -3,11 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://tuno7xlymm6o" path="res://Assets/Placeholder/965CA590-A3A7-4E95-8F19-C1EBA93AB054.png" id="1_7yhko"]
 [ext_resource type="Texture2D" uid="uid://d2d635tyhy2cn" path="res://Assets/Backgrounds/IMG_3898.png" id="2_1n30v"]
 [ext_resource type="Script" uid="uid://b3w3u44d54abo" path="res://room_1.gd" id="2_h1lav"]
-[ext_resource type="Texture2D" uid="uid://cejmnjoin4vvy" path="res://Assets/Lvl 1/Dust/Toy_Kitchen_Dirty.png" id="4_xrr5k"]
+[ext_resource type="PackedScene" uid="uid://bb484uubdy7vs" path="res://Objects/dust/shelf.tscn" id="4_xrr5k"]
 [ext_resource type="Texture2D" uid="uid://dgp2sijbniidg" path="res://Assets/Lvl 1/Move/lvl1_window.png" id="5_v342e"]
 [ext_resource type="Texture2D" uid="uid://bn3emta7i5ff1" path="res://Assets/Lvl 1/Move/rug.png" id="6_ls6ti"]
 [ext_resource type="Texture2D" uid="uid://j3nk7b0lpjn8" path="res://Assets/Lvl 1/Move/lvl1_bed.png" id="7_h3oke"]
+[ext_resource type="PackedScene" uid="uid://cs3lx8flhf35y" path="res://Objects/move/toy_chair.tscn" id="8_l0wm4"]
 [ext_resource type="Texture2D" uid="uid://ccxxn05724622" path="res://Assets/Lvl 1/Move/toy_table.png" id="8_xht2q"]
+[ext_resource type="Texture2D" uid="uid://bglncs4oohtjd" path="res://Assets/Lvl 1/Move/succulent.png" id="9_v342e"]
+[ext_resource type="PackedScene" uid="uid://dfhfnu83sm2l6" path="res://Objects/move/toy_frog.tscn" id="10_ls6ti"]
+[ext_resource type="PackedScene" uid="uid://cjegiatxinhrh" path="res://Objects/trash/blue_trash.tscn" id="11_h3oke"]
+[ext_resource type="PackedScene" uid="uid://mvs1e5yd3qpe" path="res://Objects/trash/green_trash.tscn" id="13_fk3fh"]
+[ext_resource type="PackedScene" uid="uid://cgsb7fveteh5d" path="res://Objects/trash/red_trash.tscn" id="14_x6njj"]
+[ext_resource type="PackedScene" uid="uid://bjwm5lrysgdjq" path="res://Objects/move/toy_train.tscn" id="15_863cr"]
+[ext_resource type="PackedScene" uid="uid://ci1gtrct5giso" path="res://move_destination.tscn" id="16_fk3fh"]
+[ext_resource type="Texture2D" uid="uid://bggov1sj5eqfh" path="res://Assets/Lvl 1/Move/Toy box/Toy box - back layer.png" id="17_863cr"]
+[ext_resource type="Texture2D" uid="uid://dfdewswq6jsbh" path="res://Assets/Lvl 1/Move/Toy box/Toy box - front layer.png" id="18_pckqh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1n30v"]
 texture = ExtResource("1_7yhko")
@@ -34,8 +44,11 @@ script = ExtResource("2_h1lav")
 [node name="Layer0" type="TileMapLayer" parent="." unique_id=1890719366]
 visible = false
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD7/wkAAAAAAAAAAAD8/woAAAAAAAAAAAD8/wsAAAAAAAAAAAD9/wwAAAAAAAAAAAD9/w0AAAAAAAAAAAD+/w4AAAAAAAAAAAD+/w8AAAAAAAAAAAD//xAAAAAAAAAAAAD//xEAAAAAAAAAAAABABIAAAAAAAAAAAACAA8AAAAAAAAAAAACAA4AAAAAAAAAAAABAA0AAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAADAAoAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAgAAAAAAAAAAAD7/wgAAAAAAAAAAAD6/wcAAAAAAAAAAAD7/wYAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wQAAAAAAAAAAAD8/wMAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAAAAP7/AAAAAAAAAAABAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAABAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAABAAAAAAAAAAAAAAABEAAAAAAAAAAAACABIAAAAAAAAAAAACABEAAAAAAAAAAAABABMAAAAAAAAAAAADABAAAAAAAAAAAAD8/wcAAAAAAAAAAAD8/wgAAAAAAAAAAAD7/wcAAAAAAAAAAAD8/wYAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wsAAAAAAAAAAAD+/wwAAAAAAAAAAAD+/woAAAAAAAAAAAD9/wsAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAD//wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wEAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD7/wkAAAAAAAAAAAD8/woAAAAAAAAAAAD8/wsAAAAAAAAAAAD9/wwAAAAAAAAAAAD9/w0AAAAAAAAAAAD+/w4AAAAAAAAAAAD+/w8AAAAAAAAAAAD//xAAAAAAAAAAAAD//xEAAAAAAAAAAAABABIAAAAAAAAAAAACAA8AAAAAAAAAAAACAA4AAAAAAAAAAAABAA0AAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAADAAoAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAgAAAAAAAAAAAD7/wgAAAAAAAAAAAD6/wcAAAAAAAAAAAD7/wYAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wQAAAAAAAAAAAD8/wMAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAAAAP7/AAAAAAAAAAABAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAABAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAABAAAAAAAAAAAAAAABEAAAAAAAAAAAACABIAAAAAAAAAAAACABEAAAAAAAAAAAABABMAAAAAAAAAAAADABAAAAAAAAAAAAD8/wcAAAAAAAAAAAD8/wgAAAAAAAAAAAD7/wcAAAAAAAAAAAD8/wYAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wsAAAAAAAAAAAD+/wwAAAAAAAAAAAD+/woAAAAAAAAAAAD9/wsAAAAAAAAAAAABAAQAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wIAAAAAAAAAAAADAAcAAAAAAAAAAAABAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAwAAAAAAAAAAAABAAsAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ykcdr")
+
+[node name="shelf" parent="." unique_id=767192381 groups=["Room1"] instance=ExtResource("4_xrr5k")]
+position = Vector2(-92, 32)
 
 [node name="Doorway" type="Area2D" parent="." unique_id=1162300363]
 position = Vector2(61, 120)
@@ -46,10 +59,6 @@ scale = Vector2(1.7381525, 1.9258142)
 position = Vector2(9.178989, 5.3826714)
 scale = Vector2(1.8079093, -1.145591)
 shape = SubResource("CapsuleShape2D_57y6e")
-
-[node name="ToyKitchenDirty" type="Sprite2D" parent="." unique_id=1827856403]
-position = Vector2(-95, 33)
-texture = ExtResource("4_xrr5k")
 
 [node name="Lvl1Window" type="Sprite2D" parent="." unique_id=363098517]
 position = Vector2(96, 5)
@@ -63,9 +72,65 @@ texture = ExtResource("6_ls6ti")
 position = Vector2(9, 19)
 texture = ExtResource("7_h3oke")
 
+[node name="toy_chair" parent="." unique_id=1711045138 node_paths=PackedStringArray("destination") groups=["Room1"] instance=ExtResource("8_l0wm4")]
+position = Vector2(-3.0000038, 102)
+rotation = -2.2018921
+room_num = 1
+destination = NodePath("../Chair_destination")
+
 [node name="ToyTable" type="Sprite2D" parent="." unique_id=1016539749]
-position = Vector2(-44, 88)
+z_index = 3
+position = Vector2(-39, 90)
 texture = ExtResource("8_xht2q")
+
+[node name="Succulent" type="Sprite2D" parent="." unique_id=959004934]
+position = Vector2(115, 62)
+texture = ExtResource("9_v342e")
+
+[node name="toy_frog" parent="." unique_id=450301541 node_paths=PackedStringArray("destination") groups=["Room1"] instance=ExtResource("10_ls6ti")]
+position = Vector2(41, 47)
+rotation = -0.9539813
+room_num = 1
+destination = NodePath("../Frog_Destination")
+
+[node name="blue_trash" parent="." unique_id=1732910842 groups=["Room1"] instance=ExtResource("11_h3oke")]
+position = Vector2(97, 73)
+
+[node name="green_trash" parent="." unique_id=483334763 groups=["Room1"] instance=ExtResource("13_fk3fh")]
+position = Vector2(82, 46)
+
+[node name="red_trash" parent="." unique_id=1724917190 groups=["Room1"] instance=ExtResource("14_x6njj")]
+position = Vector2(-22, 33)
+
+[node name="toy_train" parent="." unique_id=1227399563 node_paths=PackedStringArray("destination") groups=["Room1"] instance=ExtResource("15_863cr")]
+z_index = 1
+position = Vector2(-20, 62.999996)
+rotation = -1.8681127
+room_num = 1
+destination = NodePath("../Train_destination")
+
+[node name="Chair_destination" parent="." unique_id=1284749228 instance=ExtResource("16_fk3fh")]
+visible = false
+position = Vector2(-67, 76)
+
+[node name="Frog_Destination" parent="." unique_id=250560937 instance=ExtResource("16_fk3fh")]
+visible = false
+position = Vector2(12, 17)
+
+[node name="Train_destination" parent="." unique_id=250847197 instance=ExtResource("16_fk3fh")]
+visible = false
+z_index = 5
+position = Vector2(72, 74)
+
+[node name="ToyBoxBackLayer" type="Sprite2D" parent="." unique_id=49052160]
+z_index = 1
+position = Vector2(57, 79)
+texture = ExtResource("17_863cr")
+
+[node name="ToyBoxFrontLayer" type="Sprite2D" parent="." unique_id=2125482418]
+z_index = 3
+position = Vector2(57, 79)
+texture = ExtResource("18_pckqh")
 
 [connection signal="body_entered" from="Doorway" to="." method="_on_doorway_body_entered"]
 [connection signal="body_exited" from="Doorway" to="." method="_on_doorway_body_exited"]

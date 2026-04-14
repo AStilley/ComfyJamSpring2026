@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bb484uubdy7vs"]
+
+[ext_resource type="PackedScene" uid="uid://dtsgtoqqs17au" path="res://dust_object.tscn" id="1_6ochf"]
+[ext_resource type="Texture2D" uid="uid://dhv3i5pjgvgom" path="res://Assets/Lvl 1/Dust/Toy_Kitchen_Clean.png" id="2_tcnas"]
+[ext_resource type="Texture2D" uid="uid://cejmnjoin4vvy" path="res://Assets/Lvl 1/Dust/Toy_Kitchen_Dirty.png" id="3_dcqqj"]
+
+[node name="shelf" unique_id=767192381 instance=ExtResource("1_6ochf")]
+dirt_sprite = ExtResource("2_tcnas")
+clean_sprite = ExtResource("3_dcqqj")
+
+[node name="Sprite2D" parent="." index="0" unique_id=234479199]
+texture = ExtResource("3_dcqqj")
+
+[node name="RayCast2D" parent="." index="1" unique_id=654529223]
+position = Vector2(13, 27)

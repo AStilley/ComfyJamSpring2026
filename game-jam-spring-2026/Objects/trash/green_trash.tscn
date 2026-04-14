@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://mvs1e5yd3qpe"]
+
+[ext_resource type="PackedScene" uid="uid://v8mv2meq4e8x" path="res://trash_object.tscn" id="1_q4qj4"]
+[ext_resource type="Texture2D" uid="uid://okryrm1aocpy" path="res://Assets/Lvl 1/Move/green_trash.png" id="2_q4qj4"]
+
+[node name="green_trash" unique_id=1732910842 instance=ExtResource("1_q4qj4")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=136364801]
+texture = ExtResource("2_q4qj4")

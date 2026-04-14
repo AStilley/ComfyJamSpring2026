@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ci1gtrct5giso"]
+
+[ext_resource type="Script" uid="uid://ciagra6p46q2q" path="res://move_destination.gd" id="1_m8xuo"]
+[ext_resource type="Material" uid="uid://b2qluv7l1vpra" path="res://outline_shader.tres" id="2_bbwk2"]
+[ext_resource type="Material" uid="uid://c7dfbwa4spnlf" path="res://outline_shader2.tres" id="3_n6gxj"]
+[ext_resource type="Texture2D" uid="uid://cnucbaa8wc1qo" path="res://Assets/Placeholder/B23456D1-714A-4D1E-96F7-8329E78A10DD.png" id="4_n6gxj"]
+
+[node name="Move_destination" type="Node2D" unique_id=1284749228]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_m8xuo")
+mat = ExtResource("2_bbwk2")
+mat2 = ExtResource("3_n6gxj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1761423759]
+scale = Vector2(0.59999996, 0.5)
+texture = ExtResource("4_n6gxj")
