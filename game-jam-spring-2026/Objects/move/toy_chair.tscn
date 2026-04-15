@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cs3lx8flhf35y"]
+
+[ext_resource type="PackedScene" uid="uid://l2h0so20i4vf" path="res://move_object.tscn" id="1_n3jx4"]
+[ext_resource type="Texture2D" uid="uid://cnhenjq851mrq" path="res://Assets/Lvl 1/Move/toy_chair.png" id="2_wp2br"]
+
+[node name="toy_chair" unique_id=1711045138 instance=ExtResource("1_n3jx4")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1531417481]
+texture = ExtResource("2_wp2br")
+
+[node name="RayCast2D" parent="." index="1" unique_id=1924042926]
+position = Vector2(0, 9)

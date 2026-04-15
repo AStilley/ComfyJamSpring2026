@@ -1,0 +1,64 @@
+[gd_scene format=4 uid="uid://cr82vhnlsxvbh"]
+
+[ext_resource type="Texture2D" uid="uid://dxlr1utxhmfpe" path="res://Assets/Lvl 2/Bedroom/Lvl 2 room.png" id="1_0hdwe"]
+[ext_resource type="Script" uid="uid://b3w3u44d54abo" path="res://room_1.gd" id="2_g4tvr"]
+[ext_resource type="Texture2D" uid="uid://tuno7xlymm6o" path="res://Assets/Placeholder/965CA590-A3A7-4E95-8F19-C1EBA93AB054.png" id="3_uhhaj"]
+[ext_resource type="Texture2D" uid="uid://boecql8uy0xq0" path="res://Assets/Lvl 2/Bedroom/Bed.png" id="5_souqy"]
+[ext_resource type="PackedScene" uid="uid://esx1jp7mc87f" path="res://Objects/dust/shelfLv2.tscn" id="6_souqy"]
+[ext_resource type="PackedScene" uid="uid://bjib4m58daawg" path="res://Objects/dust/Desk.tscn" id="7_0wcr6"]
+[ext_resource type="Texture2D" uid="uid://ccxxn05724622" path="res://Assets/Lvl 1/Move/toy_table.png" id="8_p6m1h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1n30v"]
+texture = ExtResource("3_uhhaj")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.027423, -3.4862885, 0, -8, 9.674915, -3.1625426, 0, 1.978447)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7yhko"]
+texture = ExtResource("3_uhhaj")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ykcdr"]
+tile_shape = 1
+tile_size = Vector2i(32, 16)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_1n30v")
+sources/1 = SubResource("TileSetAtlasSource_7yhko")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57y6e"]
+
+[node name="Room_2" type="Sprite2D" unique_id=1118591998]
+texture = ExtResource("1_0hdwe")
+script = ExtResource("2_g4tvr")
+
+[node name="Layer0" type="TileMapLayer" parent="." unique_id=1890719366]
+visible = false
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD7/wkAAAAAAAAAAAD8/woAAAAAAAAAAAD8/wsAAAAAAAAAAAD9/wwAAAAAAAAAAAD9/w0AAAAAAAAAAAD+/w4AAAAAAAAAAAD+/w8AAAAAAAAAAAD//xAAAAAAAAAAAAD//xEAAAAAAAAAAAABABIAAAAAAAAAAAACAA8AAAAAAAAAAAACAA4AAAAAAAAAAAABAA0AAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAADAAoAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAgAAAAAAAAAAAD7/wgAAAAAAAAAAAD6/wcAAAAAAAAAAAD7/wYAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wQAAAAAAAAAAAD8/wMAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAAAAP7/AAAAAAAAAAABAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAABAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAABAAAAAAAAAAAAAAABEAAAAAAAAAAAACABIAAAAAAAAAAAACABEAAAAAAAAAAAABABMAAAAAAAAAAAADABAAAAAAAAAAAAD8/wcAAAAAAAAAAAD8/wgAAAAAAAAAAAD7/wcAAAAAAAAAAAD8/wYAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wsAAAAAAAAAAAD+/wwAAAAAAAAAAAD+/woAAAAAAAAAAAD9/wsAAAAAAAAAAAABAAQAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wIAAAAAAAAAAAADAAcAAAAAAAAAAAABAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAwAAAAAAAAAAAABAAsAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ykcdr")
+
+[node name="Doorway" type="Area2D" parent="." unique_id=1162300363]
+position = Vector2(61, 120)
+rotation = 1.0471976
+scale = Vector2(1.7381525, 1.9258142)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doorway" unique_id=690942415]
+position = Vector2(9.178989, 5.3826714)
+scale = Vector2(1.8079093, -1.145591)
+shape = SubResource("CapsuleShape2D_57y6e")
+
+[node name="ToyTable" type="Sprite2D" parent="." unique_id=1016539749]
+position = Vector2(-44, 88)
+texture = ExtResource("8_p6m1h")
+
+[node name="Bed" type="Sprite2D" parent="." unique_id=378017322]
+position = Vector2(-18, 19)
+texture = ExtResource("5_souqy")
+
+[node name="shelf" parent="." unique_id=767192381 groups=["Room2"] instance=ExtResource("6_souqy")]
+position = Vector2(-94, 16)
+
+[node name="Desk" parent="." unique_id=1556876512 groups=["Room2"] instance=ExtResource("7_0wcr6")]
+position = Vector2(81, 50)
+
+[connection signal="body_entered" from="Doorway" to="." method="_on_doorway_body_entered"]
+[connection signal="body_exited" from="Doorway" to="." method="_on_doorway_body_exited"]
