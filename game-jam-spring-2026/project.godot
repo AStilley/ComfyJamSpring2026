@@ -21,6 +21,10 @@ window/size/viewport_width=720
 window/size/viewport_height=480
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+Projectile=""
+
 [input]
 
 left={

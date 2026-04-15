@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://dmtyhfas67xk7"]
+
+[ext_resource type="Script" uid="uid://baq33ysm528vr" path="res://launcher.gd" id="1_6drmw"]
+[ext_resource type="Script" uid="uid://dxgsgge3lotwa" path="res://trash_can.gd" id="1_wr8ak"]
+[ext_resource type="Texture2D" uid="uid://joynhffyqiuv" path="res://Dusting Mini Game/Trash bin.png" id="2_f3gec"]
+[ext_resource type="PackedScene" uid="uid://cpnyicbifvbm0" path="res://Projectile.tscn" id="3_f3gec"]
+[ext_resource type="Script" uid="uid://cqsex1278qtwq" path="res://death_hitbox.gd" id="5_6noua"]
+[ext_resource type="Texture2D" uid="uid://drhhpcyqgt2j5" path="res://Paper ball.png" id="6_6noua"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4dxln"]
+radius = 6.6999154
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_f3gec"]
+a = Vector2(15.666668, -11.333336)
+b = Vector2(11.666668, 16)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4dxln"]
+a = Vector2(-17, -9.666672)
+b = Vector2(-10, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6noua"]
+size = Vector2(784, 20)
+
+[node name="TrashBallMiniGame" type="Node2D" unique_id=804081631]
+position = Vector2(3, 0)
+
+[node name="Position1" type="Node2D" parent="." unique_id=1335555538 groups=["Position"]]
+position = Vector2(71, 407)
+
+[node name="Position2" type="Node2D" parent="." unique_id=2000946039 groups=["Position"]]
+position = Vector2(152, 407)
+
+[node name="Position3" type="Node2D" parent="." unique_id=3929937 groups=["Position"]]
+position = Vector2(111, 407)
+
+[node name="Position4" type="Node2D" parent="." unique_id=308283139 groups=["Position"]]
+position = Vector2(36, 407)
+
+[node name="Position5" type="Node2D" parent="." unique_id=1296504675 groups=["Position"]]
+position = Vector2(187, 407)
+
+[node name="Position6" type="Node2D" parent="." unique_id=390977796 groups=["Position"]]
+position = Vector2(225, 407)
+
+[node name="TrashCan" type="Area2D" parent="." unique_id=244035667]
+position = Vector2(37, 408)
+scale = Vector2(3, 3)
+script = ExtResource("1_wr8ak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrashCan" unique_id=563992488]
+position = Vector2(0, 8.333334)
+shape = SubResource("CircleShape2D_4dxln")
+
+[node name="Sprite2D" type="Sprite2D" parent="TrashCan" unique_id=984242226]
+texture = ExtResource("2_f3gec")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TrashCan" unique_id=1222054616]
+position = Vector2(0.33333302, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrashCan/StaticBody2D" unique_id=604927232]
+shape = SubResource("SegmentShape2D_f3gec")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="TrashCan" unique_id=2138452692]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrashCan/StaticBody2D2" unique_id=1068379236]
+shape = SubResource("SegmentShape2D_4dxln")
+
+[node name="Launcher" type="Node2D" parent="." unique_id=1997222618]
+position = Vector2(720, 385)
+script = ExtResource("1_6drmw")
+projectile_scene = ExtResource("3_f3gec")
+power = 925.0
+
+[node name="Line" type="Line2D" parent="Launcher" unique_id=1851107168]
+width = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Launcher" unique_id=187195423]
+
+[node name="SpawnPoint" type="Node2D" parent="Launcher" unique_id=1234986541]
+
+[node name="Death hitbox" type="Area2D" parent="." unique_id=1703707422]
+script = ExtResource("5_6noua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death hitbox" unique_id=1722181844]
+position = Vector2(278, 487)
+scale = Vector2(1, 1.2628636)
+shape = SubResource("RectangleShape2D_6noua")
+
+[node name="PaperBall" type="Sprite2D" parent="." unique_id=1406618298]
+position = Vector2(583, 38)
+scale = Vector2(1.59375, 1.71875)
+texture = ExtResource("6_6noua")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PaperBall" unique_id=2023457853]
+offset_left = 24.470589
+offset_top = -15.127273
+offset_right = 74.47059
+offset_bottom = 24.872726
+text = "#1"
+
+[connection signal="body_entered" from="TrashCan" to="TrashCan" method="_on_body_entered"]
+[connection signal="body_entered" from="Death hitbox" to="TrashCan" method="_on_death_hitbox_body_entered"]
