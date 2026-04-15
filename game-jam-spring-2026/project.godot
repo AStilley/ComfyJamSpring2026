@@ -23,6 +23,8 @@ window/stretch/mode="canvas_items"
 
 [global_group]
 
+Projectile=""
+
 Player=""
 Room1=""
 

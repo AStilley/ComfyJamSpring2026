@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://doe2dchyahq35"]
+
+[ext_resource type="Shader" uid="uid://fefwa38wjygn" path="res://Dusting Mini Game/Dust Minigame.gdshader" id="1_ctplp"]
+[ext_resource type="Script" uid="uid://cypxya5ltdijb" path="res://Dusting Mini Game/dust_minigame.gd" id="1_jfr85"]
+[ext_resource type="Texture2D" uid="uid://dk6cc3covlljo" path="res://Dusting Mini Game/—Pngtree—adorable golden cat clipart standing_19679937.png" id="2_kguvf"]
+[ext_resource type="Script" uid="uid://cama5ft7lnhhx" path="res://Dusting Mini Game/sprite_2d.gd" id="2_sa7bw"]
+[ext_resource type="Script" uid="uid://duhfw1pfir7to" path="res://Dusting Mini Game/area_2d.gd" id="3_sa7bw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kguvf"]
+shader = ExtResource("1_ctplp")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfr85"]
+radius = 16.124516
+
+[node name="DustMiniGame" type="Node2D" unique_id=2126912980]
+script = ExtResource("1_jfr85")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=25591508]
+material = SubResource("ShaderMaterial_kguvf")
+position = Vector2(357.99994, 260)
+scale = Vector2(0.09216666, 0.11883329)
+texture = ExtResource("2_kguvf")
+script = ExtResource("2_sa7bw")
+wipe_radius = 100
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1300322378]
+script = ExtResource("3_sa7bw")
+dust_sprite_path = NodePath("../Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2093996505]
+shape = SubResource("CircleShape2D_jfr85")
