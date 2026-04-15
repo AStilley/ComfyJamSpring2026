@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bsak7o1pmu6fu" path="res://camera_2d.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dhc07rvjhu07e" path="res://Player/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dcsu5xhojjgkk" path="res://Room_1.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cr82vhnlsxvbh" path="res://Room_2.tscn" id="7_272bh"]
 
 [node name="Node2D" type="Node2D" unique_id=2117910198]
 
@@ -10,14 +11,30 @@
 position = Vector2(360, 240)
 script = ExtResource("1_h2yge")
 
-[node name="Room_1" parent="." unique_id=1890719366 instance=ExtResource("3_h2yge")]
+[node name="Room_1" parent="." unique_id=1890719366 node_paths=PackedStringArray("connectSpot") instance=ExtResource("3_h2yge")]
 position = Vector2(348, 240)
 scale = Vector2(1.5, 1.5)
+connectSpot = NodePath("../Room_2/Room2Enter")
+next_room_num = 2
 
-[node name="Player2" parent="." unique_id=96595173 instance=ExtResource("2_0xm2m")]
-position = Vector2(396, 307)
+[node name="Room1Enter" type="Node2D" parent="Room_1" unique_id=1401092916]
+position = Vector2(50.666668, 126.66667)
+scale = Vector2(0.6666667, 0.6666667)
 
-[node name="Room_2" parent="." unique_id=1118591998 instance=ExtResource("3_h2yge")]
-modulate = Color(0.5372549, 0, 1, 1)
+[node name="Room_2" parent="." unique_id=1118591998 node_paths=PackedStringArray("connectSpot") instance=ExtResource("7_272bh")]
 position = Vector2(1080, 240)
 scale = Vector2(1.5, 1.5)
+connectSpot = NodePath("../Room_1/Room1Enter")
+next_room_num = 1
+
+[node name="Room2Enter" type="Node2D" parent="Room_2" unique_id=419056226]
+position = Vector2(47.333336, 123.333336)
+scale = Vector2(0.6666667, 0.6666667)
+
+[node name="Test" parent="." unique_id=96595173 instance=ExtResource("2_0xm2m")]
+position = Vector2(373, 398)
+
+[connection signal="camera" from="Room_1" to="Camera2D" method="camPosition"]
+[connection signal="player_room" from="Room_1" to="Test" method="change_room"]
+[connection signal="camera" from="Room_2" to="Camera2D" method="camPosition"]
+[connection signal="player_room" from="Room_2" to="Test" method="change_room"]

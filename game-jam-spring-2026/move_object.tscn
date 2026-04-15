@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://l2h0so20i4vf"]
+
+[ext_resource type="Script" uid="uid://0l6a2b6c5ufg" path="res://move_object.gd" id="1_2n8u7"]
+[ext_resource type="Material" uid="uid://b2qluv7l1vpra" path="res://outline_shader.tres" id="1_nwund"]
+[ext_resource type="Material" uid="uid://c7dfbwa4spnlf" path="res://outline_shader2.tres" id="3_2n8u7"]
+
+[node name="move_object" type="Node2D" unique_id=1711045138]
+script = ExtResource("1_2n8u7")
+mat = ExtResource("1_nwund")
+mat2 = ExtResource("3_2n8u7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1531417481]
+material = ExtResource("1_nwund")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1924042926]
+target_position = Vector2(31, -14)

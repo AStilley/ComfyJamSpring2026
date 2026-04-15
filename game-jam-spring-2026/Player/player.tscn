@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dkbw"]
 radius = 21.023796
 
-[node name="Player" type="CharacterBody2D" unique_id=502210432]
+[node name="Player" type="CharacterBody2D" unique_id=502210432 groups=["Player"]]
 script = ExtResource("1_42ffj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1093722521]
@@ -14,3 +14,6 @@ texture = ExtResource("2_42ffj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1666823653]
 shape = SubResource("CircleShape2D_5dkbw")
+
+[node name="Item Hold" type="Node2D" parent="." unique_id=381997783]
+position = Vector2(0, -50)

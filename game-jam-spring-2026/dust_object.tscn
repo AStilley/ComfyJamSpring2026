@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dtsgtoqqs17au"]
+
+[ext_resource type="Script" uid="uid://dd0yabhsebtiw" path="res://dust_object.gd" id="1_1n0qa"]
+[ext_resource type="Material" uid="uid://b2qluv7l1vpra" path="res://outline_shader.tres" id="2_thmmj"]
+[ext_resource type="Material" uid="uid://c7dfbwa4spnlf" path="res://outline_shader2.tres" id="3_c52fv"]
+
+[node name="dust_object" type="Node2D" unique_id=767192381]
+script = ExtResource("1_1n0qa")
+mat = ExtResource("2_thmmj")
+mat2 = ExtResource("3_c52fv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=234479199]
+material = ExtResource("2_thmmj")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=654529223]
