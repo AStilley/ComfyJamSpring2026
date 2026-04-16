@@ -15,6 +15,10 @@ run/main_scene="uid://we108yis2ik5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalBus="*uid://bqe7aac6omqep"
+
 [display]
 
 window/size/viewport_width=720
@@ -24,7 +28,6 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 Projectile=""
-
 Player=""
 Room1=""
 

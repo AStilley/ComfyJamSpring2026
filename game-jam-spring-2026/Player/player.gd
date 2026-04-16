@@ -12,6 +12,10 @@ func _ready() -> void:
 	trash = 0
 	interactable_objects = get_tree().get_nodes_in_group("Room1")
 	arr_head = interactable_objects[0].name
+	SignalBus.minigame_done.connect(_on_done)
+	pass
+	
+func _on_done():
 	pass
 func _process(delta: float) -> void:
 	#print(interactable_objects[0])

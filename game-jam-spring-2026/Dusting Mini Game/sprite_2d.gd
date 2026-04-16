@@ -5,7 +5,6 @@ extends Sprite2D
 var dust_image: Image
 var dust_texture: ImageTexture
 var shader_material: ShaderMaterial
-signal minigame_done()
 func setup_dust():
 	if texture == null:
 		return
@@ -66,7 +65,7 @@ func _input(event):
 				
 				
 				
-				minigame_done.emit()
+				SignalBus.minigame_done.emit()
 				#Needs to connect to the minigame_off function in the player script
 				
 				
