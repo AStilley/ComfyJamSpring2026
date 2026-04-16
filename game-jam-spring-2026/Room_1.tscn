@@ -49,6 +49,7 @@ tile_set = SubResource("TileSet_ykcdr")
 
 [node name="shelf" parent="." unique_id=767192381 groups=["Room1"] instance=ExtResource("4_xrr5k")]
 position = Vector2(-92, 32)
+room_num = 1
 
 [node name="Doorway" type="Area2D" parent="." unique_id=1162300363]
 position = Vector2(61, 120)

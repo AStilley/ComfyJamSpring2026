@@ -28,8 +28,8 @@ func _ready():
 func wipe_at(global_pos: Vector2):
 	if texture == null or dust_image == null or dust_texture == null:
 		return
-	print("Local" + " " + str(position))
-	print("Global" + " " + str(global_position))
+	#print("Local" + " " + str(position))
+	#print("Global" + " " + str(global_position))
 	#var local = to_local(global_pos)
 	var local = to_local(global_pos)
 	var size = texture.get_size()
@@ -67,7 +67,7 @@ func _input(event):
 				
 				SignalBus.minigame_done.emit()
 				#Needs to connect to the minigame_off function in the player script
-				
+				$"..".queue_free()
 				
 				
 				#delete itself

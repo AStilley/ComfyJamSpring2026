@@ -11,7 +11,7 @@ extends Node2D
 @export var target_pos: Vector2
 var dist_from_player: float
 var type = "dust"
-
+@export var room_num: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,6 +51,8 @@ func outline_on() -> void:
 	pass
 
 func clean() -> void:
+	self.remove_from_group("Room" + str(room_num))
+	$Sprite2D.material = null
 	$Sprite2D.texture = clean_sprite
 	pass
 func get_distance() -> float:

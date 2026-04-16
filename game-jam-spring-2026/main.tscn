@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bsak7o1pmu6fu" path="res://camera_2d.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dhc07rvjhu07e" path="res://Player/player.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://w7mutwd5ofn1" path="res://Assets/Bg/Tile Bg Green.png" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dcsu5xhojjgkk" path="res://Room_1.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cr82vhnlsxvbh" path="res://Room_2.tscn" id="7_272bh"]
 
@@ -11,6 +12,13 @@ position = Vector2(1, 1)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=151889587]
 position = Vector2(360, 240)
 script = ExtResource("1_h2yge")
+
+[node name="BackgroundMinigame" type="Sprite2D" parent="." unique_id=1973270049]
+visible = false
+z_index = 8
+position = Vector2(360, 240)
+scale = Vector2(15, 15)
+texture = ExtResource("2_lquwl")
 
 [node name="Room_1" parent="." unique_id=1890719366 node_paths=PackedStringArray("connectSpot") instance=ExtResource("3_h2yge")]
 position = Vector2(348, 240)
@@ -32,9 +40,10 @@ next_room_num = 1
 position = Vector2(47.333336, 123.333336)
 scale = Vector2(0.6666667, 0.6666667)
 
-[node name="Test" parent="." unique_id=96595173 node_paths=PackedStringArray("camera") instance=ExtResource("2_0xm2m")]
+[node name="Test" parent="." unique_id=96595173 node_paths=PackedStringArray("camera", "background") instance=ExtResource("2_0xm2m")]
 position = Vector2(373, 398)
 camera = NodePath("../Camera2D")
+background = NodePath("../BackgroundMinigame")
 
 [connection signal="camera" from="Room_1" to="Camera2D" method="camPosition"]
 [connection signal="player_room" from="Room_1" to="Test" method="change_room"]

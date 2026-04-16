@@ -3,10 +3,16 @@ extends CharacterBody2D
 
 const speed = 200.0
 var holding = false
+@export var camera: Camera2D
 @export var current_room: int
 @export var interactable_objects = []
 @export var trash: int
 @onready var arr_head = ""
+@onready var freeze = false
+@onready var camera_pos = camera.global_position
+@export var background:Sprite2D
+var camera_curr_pos: Vector2
+var dust_mini = preload("res://Dusting Mini Game/Dust Minigame.tscn")
 func _ready() -> void:
 	current_room = 1
 	trash = 0
@@ -16,6 +22,8 @@ func _ready() -> void:
 	pass
 	
 func _on_done():
+	minigame_off()
+	camera.global_position = camera_curr_pos
 	pass
 func _process(delta: float) -> void:
 	#print(interactable_objects[0])
@@ -97,6 +105,15 @@ func get_input():
 					print("This is a DUST object")
 					#Interaction with DUST objects
 						#Lead to minigame					
+					camera_curr_pos = camera.global_position
+					camera.global_position = camera_pos
+					minigame_on()
+					var instance = dust_mini.instantiate()
+					instance.Startgame(interactable_objects[0].get_child(0).texture, camera.position)
+					camera.add_child(instance)
+					interactable_objects[0].clean()
+					interactable_objects.erase(0)
+					
 					pass
 				"trash":
 					print("This is a TRASH object")
@@ -124,7 +141,8 @@ func sort_by_distance(a,b):
 
 
 func _physics_process(delta: float) -> void:
-	get_input()
+	if !freeze:
+		get_input()
 	move_and_slide()
 	
 func change_room(room_num) -> void:
@@ -141,3 +159,12 @@ func change_room(room_num) -> void:
 				pass
 
 		#Get the objects in this room
+
+func minigame_on():
+	freeze = true
+	background.show()
+	pass
+func minigame_off():
+	freeze = false	
+	background.hide()
+	pass

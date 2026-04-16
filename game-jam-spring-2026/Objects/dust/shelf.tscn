@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cejmnjoin4vvy" path="res://Assets/Lvl 1/Dust/Toy_Kitchen_Dirty.png" id="3_dcqqj"]
 
 [node name="shelf" unique_id=767192381 instance=ExtResource("1_6ochf")]
-dirt_sprite = ExtResource("2_tcnas")
-clean_sprite = ExtResource("3_dcqqj")
+dirt_sprite = ExtResource("3_dcqqj")
+clean_sprite = ExtResource("2_tcnas")
 
 [node name="Sprite2D" parent="." index="0" unique_id=234479199]
 texture = ExtResource("3_dcqqj")
