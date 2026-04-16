@@ -11,6 +11,8 @@ extends Node2D
 @export var target_pos: Vector2
 var dist_from_player: float
 var type = "dust"
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	outline_on()

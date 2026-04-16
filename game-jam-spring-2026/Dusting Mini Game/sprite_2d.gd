@@ -5,7 +5,7 @@ extends Sprite2D
 var dust_image: Image
 var dust_texture: ImageTexture
 var shader_material: ShaderMaterial
-
+signal minigame_done()
 func setup_dust():
 	if texture == null:
 		return
@@ -29,7 +29,9 @@ func _ready():
 func wipe_at(global_pos: Vector2):
 	if texture == null or dust_image == null or dust_texture == null:
 		return
-
+	print("Local" + " " + str(position))
+	print("Global" + " " + str(global_position))
+	#var local = to_local(global_pos)
 	var local = to_local(global_pos)
 	var size = texture.get_size()
 
@@ -60,6 +62,16 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			print("Mouse released")
 			if is_mostly_clear(0.45):
+				#Move camera back
+				
+				
+				
+				minigame_done.emit()
+				#Needs to connect to the minigame_off function in the player script
+				
+				
+				
+				#delete itself
 				print("Done")
 
 func is_mostly_clear(percent_needed: float = 0.9, clear_threshold: float = 0.1) -> bool:

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cr82vhnlsxvbh" path="res://Room_2.tscn" id="7_272bh"]
 
 [node name="Node2D" type="Node2D" unique_id=2117910198]
+position = Vector2(1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=151889587]
 position = Vector2(360, 240)
@@ -31,8 +32,9 @@ next_room_num = 1
 position = Vector2(47.333336, 123.333336)
 scale = Vector2(0.6666667, 0.6666667)
 
-[node name="Test" parent="." unique_id=96595173 instance=ExtResource("2_0xm2m")]
+[node name="Test" parent="." unique_id=96595173 node_paths=PackedStringArray("camera") instance=ExtResource("2_0xm2m")]
 position = Vector2(373, 398)
+camera = NodePath("../Camera2D")
 
 [connection signal="camera" from="Room_1" to="Camera2D" method="camPosition"]
 [connection signal="player_room" from="Room_1" to="Test" method="change_room"]

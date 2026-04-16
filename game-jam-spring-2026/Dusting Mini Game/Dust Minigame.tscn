@@ -12,11 +12,13 @@ shader = ExtResource("1_ctplp")
 radius = 16.124516
 
 [node name="DustMiniGame" type="Node2D" unique_id=2126912980]
+z_index = 10
 script = ExtResource("1_jfr85")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1891513205]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=25591508]
 material = SubResource("ShaderMaterial_kguvf")
-position = Vector2(375, 223)
 scale = Vector2(0.01, 0.01)
 script = ExtResource("2_sa7bw")
 

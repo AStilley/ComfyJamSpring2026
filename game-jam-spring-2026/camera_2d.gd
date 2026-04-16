@@ -22,3 +22,6 @@ func camPosition(positionNum) -> void:
 		3:
 			pass
 	pass
+func cam_move(cam_position):
+	global_position = cam_position
+	pass 
