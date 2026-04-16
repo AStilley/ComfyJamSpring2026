@@ -586,7 +586,7 @@ animation = &"walk_up_right"
 blend_point_0/node = SubResource("AnimationNodeAnimation_b1ygp")
 blend_point_0/pos = Vector2(0, 1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_o28un")
-blend_point_1/pos = Vector2(-0.5, 0.5)
+blend_point_1/pos = Vector2(-0.5, 0.6)
 blend_point_2/node = SubResource("AnimationNodeAnimation_n471f")
 blend_point_2/pos = Vector2(0.5, 0.5)
 blend_point_3/node = SubResource("AnimationNodeAnimation_7emwf")
@@ -596,9 +596,9 @@ blend_point_4/pos = Vector2(1, 0)
 blend_point_5/node = SubResource("AnimationNodeAnimation_gpjlu")
 blend_point_5/pos = Vector2(0, -1)
 blend_point_6/node = SubResource("AnimationNodeAnimation_8mwp6")
-blend_point_6/pos = Vector2(-0.5, -0.5)
+blend_point_6/pos = Vector2(-0.5, -0.6)
 blend_point_7/node = SubResource("AnimationNodeAnimation_qemgg")
-blend_point_7/pos = Vector2(0.5, -0.5)
+blend_point_7/pos = Vector2(0.5, -0.6)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_btcbx"]
@@ -609,17 +609,14 @@ states/Start/position = Vector2(195, 141)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_o28un")
 states/Walk/position = Vector2(369, 184)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3vf3"]
-radius = 15.0
-height = 62.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_5dkbw"]
+radius = 21.023796
 
-[node name="Player" type="CharacterBody2D" unique_id=502210432 node_paths=PackedStringArray("animation_tree") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=502210432 groups=["Player"]]
 script = ExtResource("1_42ffj")
-animation_tree = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1093722521]
 position = Vector2(0, -25)
-scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_btcbx")
 hframes = 3
 vframes = 3
@@ -636,8 +633,8 @@ parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1666823653]
-position = Vector2(0, -15)
-shape = SubResource("CapsuleShape2D_x3vf3")
+position = Vector2(0, -25)
+shape = SubResource("CircleShape2D_5dkbw")
 
 [node name="Item Hold" type="Node2D" parent="." unique_id=381997783]
 position = Vector2(0, -75)

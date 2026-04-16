@@ -59,7 +59,7 @@ func _input(event):
 
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-			print("Mouse released")
+			#print("Mouse released")
 			if is_mostly_clear(0.45):
 				#Move camera back
 				
@@ -71,7 +71,7 @@ func _input(event):
 				
 				
 				#delete itself
-				print("Done")
+				#print("Done")
 
 func is_mostly_clear(percent_needed: float = 0.9, clear_threshold: float = 0.1) -> bool:
 	if dust_image == null:

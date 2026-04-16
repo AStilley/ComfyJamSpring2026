@@ -7,13 +7,18 @@ var holding = false
 @export var current_room: int
 @export var interactable_objects = []
 @export var trash: int
+@export var background:Sprite2D
+@export var animation_tree : AnimationTree
 @onready var arr_head = ""
 @onready var freeze = false
 @onready var camera_pos = camera.global_position
-@export var background:Sprite2D
+var input
 var camera_curr_pos: Vector2
+var playback:AnimationNodeStateMachinePlayback
+
 var dust_mini = preload("res://Dusting Mini Game/Dust Minigame.tscn")
 func _ready() -> void:
+	playback = animation_tree["parameters/playback"]
 	current_room = 1
 	trash = 0
 	interactable_objects = get_tree().get_nodes_in_group("Room1")
@@ -31,8 +36,10 @@ func _process(delta: float) -> void:
 	
 func get_input():
 	#Movement
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = input_direction * speed
+	input = Input.get_vector("left", "right", "up", "down")
+	velocity = input * speed
+	
+	
 	
 	#check for distance
 	if interactable_objects.size() > 1:
@@ -138,13 +145,26 @@ func sort_by_distance(a,b):
 	if a.dist_from_player < b.dist_from_player:
 		return true
 	return false
-
+func update_animation_parameters():
+	if input == Vector2.ZERO:
+		return
+	animation_tree["parameters/Idle/blend_position"]= input
+	animation_tree["parameters/Walk/blend_position"] = input
+	pass
 
 func _physics_process(delta: float) -> void:
 	if !freeze:
 		get_input()
 	move_and_slide()
-	
+	select_animation()
+	update_animation_parameters()
+func select_animation():
+	if velocity == Vector2.ZERO:
+		playback.travel("Idle")
+	else:
+		playback.travel("Walk")
+		pass
+	pass	
 func change_room(room_num) -> void:
 		current_room = room_num
 		match current_room:
